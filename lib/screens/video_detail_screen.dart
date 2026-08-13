@@ -92,39 +92,41 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
             height: size.height,
             child: Column(
               children: [
-                _controller.value.initialized
+                _controller.value.isInitialized
                     ? Container(
                         height: 220,
+                        width: double.infinity,
+                        color: Colors.black,
                         child: Stack(
                           children: [
-                            AspectRatio(
-                              aspectRatio: _controller.value.aspectRatio,
-                              child: VideoPlayer(_controller),
+                            Center(
+                              child: AspectRatio(
+                                aspectRatio: _controller.value.aspectRatio,
+                                child: VideoPlayer(_controller),
+                              ),
                             ),
                             Container(
                                 decoration: BoxDecoration(
                                     color: Colors.black.withOpacity(0.2))),
-                            AspectRatio(
-                              aspectRatio: _controller.value.aspectRatio,
-                              child: Center(
-                                child: IconButton(
-                                  icon: Icon(
-                                    _controller.value.isPlaying
-                                        ? null
-                                        : Icons.play_arrow,
-                                    size: 50,
-                                    color: Colors.white,
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      _controller.value.isPlaying
-                                          ? _controller.pause()
-                                          : _controller.play();
-                                    });
-                                  },
+                            Center(
+                              child: IconButton(
+                                icon: Icon(
+                                  _controller.value.isPlaying
+                                      ? null
+                                      : Icons.play_arrow,
+                                  size: 50,
+                                  color: Colors.white,
                                 ),
+                                onPressed: () {
+                                  setState(() {
+                                    _controller.value.isPlaying
+                                        ? _controller.pause()
+                                        : _controller.play();
+                                  });
+                                },
                               ),
                             ),
+
                             Positioned(
                               left: 5,
                               bottom: 20,
@@ -204,77 +206,81 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
                           SizedBox(
                             height: 10,
                           ),
-                          Row(
-                            children: [
-                              Text(
-                                "New",
-                                style: TextStyle(
-                                    color: Colors.green,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15),
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Text(
-                                "2021",
-                                style: TextStyle(
-                                    color: Colors.white.withOpacity(0.5),
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15),
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(2),
-                                    color: Colors.white.withOpacity(0.2)),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 6, right: 6, top: 4, bottom: 4),
-                                  child: Text(
-                                    "18+",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 12),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                Text(
+                                  "New",
+                                  style: TextStyle(
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Text(
+                                  "2021",
+                                  style: TextStyle(
+                                      color: Colors.white.withOpacity(0.5),
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 15),
+                                ),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(2),
+                                      color: Colors.white.withOpacity(0.2)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 6, right: 6, top: 4, bottom: 4),
+                                    child: Text(
+                                      "18+",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 12),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Text(
-                                "1 Season",
-                                style: TextStyle(
-                                    color: Colors.white.withOpacity(0.5),
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 15),
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(2),
-                                    border: Border.all(
-                                        width: 2,
-                                        color: Colors.white.withOpacity(0.2))),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 4, right: 4, top: 2, bottom: 2),
-                                  child: Text(
-                                    "HD",
-                                    style: TextStyle(
-                                        color: Colors.white.withOpacity(0.6),
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 12),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Text(
+                                  "1 Season",
+                                  style: TextStyle(
+                                      color: Colors.white.withOpacity(0.5),
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 15),
+                                ),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(2),
+                                      border: Border.all(
+                                          width: 2,
+                                          color: Colors.white.withOpacity(0.2))),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(
+                                        left: 4, right: 4, top: 2, bottom: 2),
+                                    child: Text(
+                                      "HD",
+                                      style: TextStyle(
+                                          color: Colors.white.withOpacity(0.6),
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 12),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
+
                           SizedBox(
                             height: 10,
                           ),
@@ -514,9 +520,7 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
                                   children: [
                                     Row(
                                       children: [
-                                        Container(
-                                          width: (size.width - 30) * 0.85,
-                                          height: 100,
+                                        Expanded(
                                           child: Row(
                                             children: [
                                               Container(
@@ -573,8 +577,7 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
                                                   ],
                                                 ),
                                               ),
-                                              Container(
-                                                width: (size.width) * 0.35,
+                                              Expanded(
                                                 child: Padding(
                                                   padding:
                                                       const EdgeInsets.only(
@@ -618,19 +621,17 @@ class _VideoDetailScreenState extends State<VideoDetailScreen> {
                                             ],
                                           ),
                                         ),
-                                        Container(
-                                          width: (size.width - 30) * 0.15,
-                                          height: 100,
-                                          child: Center(
-                                            child: Icon(
-                                              Icons.file_download,
-                                              color:
-                                                  Colors.white.withOpacity(0.7),
-                                            ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                                          child: Icon(
+                                            Icons.file_download,
+                                            color:
+                                                Colors.white.withOpacity(0.7),
                                           ),
                                         )
                                       ],
                                     ),
+
                                     SizedBox(
                                       height: 5,
                                     ),

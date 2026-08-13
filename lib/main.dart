@@ -1,4 +1,3 @@
-// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:flutter_netflix_clone_app/widgets/bottom_navigation_widget.dart';
 

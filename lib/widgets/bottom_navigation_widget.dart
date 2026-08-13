@@ -41,46 +41,54 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
   }
 
   Widget getFooter() {
+    var size = MediaQuery.of(context).size;
     return Container(
       height: 80,
       decoration: BoxDecoration(color: Colors.black),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20, top: 5),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: List.generate(items.length, (index) {
-            return GestureDetector(
-              onTap: () {
-                setState(() {
-                  activeTab = index;
-                });
-              },
-              child: Column(
-                children: [
-                  Icon(
-                    items[index]['icon'],
-                    color: activeTab == index
-                        ? Colors.white
-                        : Colors.white.withOpacity(0.5),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: Container(
+          width: size.width > 600 ? 600 : size.width,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: List.generate(items.length, (index) {
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      activeTab = index;
+                    });
+                  },
+                  child: Column(
+                    children: [
+                      Icon(
+                        items[index]['icon'],
+                        color: activeTab == index
+                            ? Colors.white
+                            : Colors.white.withOpacity(0.5),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        items[index]['text'],
+                        style: TextStyle(
+                          fontSize: 10,
+                          color: activeTab == index
+                              ? Colors.white
+                              : Colors.white.withOpacity(0.5),
+                        ),
+                      )
+                    ],
                   ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    items[index]['text'],
-                    style: TextStyle(
-                      fontSize: 10,
-                      color: activeTab == index
-                          ? Colors.white
-                          : Colors.white.withOpacity(0.5),
-                    ),
-                  )
-                ],
-              ),
-            );
-          }),
+                );
+              }),
+            ),
+          ),
         ),
       ),
     );
   }
 }
+
