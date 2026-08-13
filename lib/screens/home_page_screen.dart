@@ -220,48 +220,48 @@ class _HomePageState extends State<HomePageScreen> {
                               )
                             ],
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (_) => VideoDetailScreen(
-                                    videoUrl: "assets/videos/video_1.mp4",
-                                  ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => VideoDetailScreen(
+                                  videoUrl: "assets/videos/video_1.mp4",
                                 ),
-                              );
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(4),
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 13, left: 8, top: 2, bottom: 2),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Icon(
-                                      Icons.play_arrow,
-                                      color: Colors.black,
-                                      size: 30,
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "Play",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.black),
-                                    )
-                                  ],
-                                ),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.play_arrow,
+                                    color: Colors.black,
+                                    size: 30,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "Play",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                  )
+                                ],
                               ),
                             ),
                           ),
+                        ),
+
                           Column(
                             children: [
                               Icon(

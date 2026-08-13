@@ -105,7 +105,8 @@ class _ComingSoonPageState extends State<ComingSoonScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          height: 220,
+                          height: size.width > 600 ? 450 : 250,
+                          width: double.infinity,
                           child: Stack(
                             children: [
                               Container(
